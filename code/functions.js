@@ -1,5 +1,5 @@
 function encriptar() {
-    let keys = {
+    const keys = {
         a: "ai",
         e: "enter",
         i: "imes",
@@ -19,7 +19,7 @@ function encriptar() {
 }
 
 function desencriptar() {
-    let keys = { a: 2, e: 5, i: 4, o: 4, u: 4 };
+    const keys = { a: 2, e: 5, i: 4, o: 4, u: 4 };
     let i = 0;
     let result = "";
     let word = document.querySelector("#input").value;
@@ -29,4 +29,8 @@ function desencriptar() {
         else i += keys[word[i]];
     }
     document.querySelector("#copiar-area").innerHTML = result;
+}
+
+function copiar() {   
+  navigator.clipboard.writeText(document.querySelector('#copiar-area').innerHTML).then(e => console.log(e))
 }
