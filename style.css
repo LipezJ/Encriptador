@@ -1,0 +1,46 @@
+* {
+    border: 1px red solid;
+}
+main {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
+    height: 500px;
+}
+#text {
+    grid-area: 1 / 1 / 6 / 6;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+#input-area {
+    grid-area: 1 / 1 / 6 / 3;
+}
+#encrip {
+    grid-area: 6 / 1 / 7 / 2;
+}
+#desencrip {
+    grid-area: 6 / 2 / 7 / 3;
+}
+
+#copiar-text {
+    grid-area: 1 / 6 / 6 / 8;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+#copiar-area {
+    grid-area: 1 / 1 / 6 / 2;
+}
+#copiar {
+    grid-area: 6 / 1 / 7 / 2;
+}
