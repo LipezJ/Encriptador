@@ -1,46 +1,142 @@
 * {
-    border: 1px red solid;
+    /* border: #000 solid 1px; */
+    font-size: large;
+    font-family: "Martian Mono", monospace;
 }
-main {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+button {
+    padding: 5px 10px;
+    margin: 10px 0px;
+    height: auto;
+    width: 200px;
 
-    height: 500px;
+    border: 3px #000 solid;
+    border-radius: 10px;
+    background-color: #fff;
 }
-#text {
-    grid-area: 1 / 1 / 6 / 6;
-
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+.boton {
+    display: flex;
+    justify-content: center;
 }
 #input-area {
-    grid-area: 1 / 1 / 6 / 3;
+    display: flex;
+    height: 100%;
+    justify-content: center;
 }
-#encrip {
-    grid-area: 6 / 1 / 7 / 2;
+#input {
+    height: 80%;
+    width: 100%;
+    margin: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px #000 solid;
 }
-#desencrip {
-    grid-area: 6 / 2 / 7 / 3;
-}
-
-#copiar-text {
-    grid-area: 1 / 6 / 6 / 8;
-
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+#copiar-cont {
+    display: flex;
+    height: 100%;
+    justify-content: center;
 }
 #copiar-area {
-    grid-area: 1 / 1 / 6 / 2;
+    height: 80%;
+    width: 100%;
+    margin: 30px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 3px #000 solid;
 }
-#copiar {
-    grid-area: 6 / 1 / 7 / 2;
+
+@media screen and (min-width: 1000px) {
+    main {
+        height: 85vh;
+        margin: 20px;
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: 1fr;
+    }
+    #text {
+        grid-area: 1 / 1 / 2 / 8;
+    }
+    #input-area {
+        height: 80%;
+    }
+    #botones {
+        height: 20%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0px 40px 0px 40px;
+    }
+    #copiar-text {
+        grid-area: 1 / 8 / 2 / 11;
+    }
+    #copiar-cont {
+        height: 80%;
+    }
+    #copiar {
+        height: 20%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    main {
+        height: 130vh;
+        margin: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+    }
+    #text {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    #input-area {
+        height: 80%;
+    }
+    #botones {
+        height: 20%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0px 40px 0px 40px;
+    }
+    #copiar-text {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+    #copiar-cont {
+        height: 80%;
+    }
+    #copiar {
+        height: 20%;
+    }
+}
+@media screen and (max-width: 560px) {
+    main {
+        height: 120vh;
+        display: grid;
+        margin: -5px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 20px;
+    }
+    #text {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    #input-area {
+        height: 80%;
+        margin: 10px 0px 0px 0px;
+    }
+    #botones {
+        height: 15%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        padding: 0px 40px 0px 40px;
+        gap: 0px;
+    }
+    #copiar-text {
+        grid-area: 2 / 1 / 3 / 2;
+        height: 60%;
+    }
+    #copiar-cont{
+        height: 80%;
+        margin: 30px 0px 25px 0px;
+    }
+    button {
+        height: 50px;
+    }
 }

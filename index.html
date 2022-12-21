@@ -5,6 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="./style.css" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;400&display=swap" rel="stylesheet">
         <title>Encriptador|Desencriptador</title>
     </head>
     <body>
@@ -14,21 +16,25 @@
                 <div id="input-area">
                     <input title="text" type="text" id="input" />
                 </div>
-                <div id="encrip">
-                    <button title="encrip" type="button" id="encripb" onclick="encriptar()">
-                        Encriptar
-                    </button>
-                </div>
-                <div id="desencrip">
-                    <button title="desencrip" type="button" id="desencripb" onclick="desencriptar()">
-                        Desencriptar
-                    </button>
+                <div id="botones">
+                    <div id="encrip" class="boton">
+                        <button title="encrip" type="button" id="encripb" onclick="encriptar()">
+                            Encriptar
+                        </button>
+                    </div>
+                    <div id="desencrip" class="boton">
+                        <button title="desencrip" type="button" id="desencripb" onclick="desencriptar()">
+                            Desencriptar
+                        </button>
+                    </div>
                 </div>
             </div>
             <div id="copiar-text">
-                <div id="copiar-area"></div>
-                <div id="copiar">
-                    <button title="copiar" type="button" onclick="copiar()">Copiar</button>
+                <div id="copiar-cont">
+                    <div id="copiar-area"></div>
+                </div>
+                <div id="copiar" class="boton">
+                    <button title="copiar" type="button" id="copiarb" onclick="copiar()">Copiar</button>
                 </div>
             </div>
         </main>
