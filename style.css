@@ -1,4 +1,4 @@
-* {
+main, header, button, input, #copiar-area {
     /* border: #000 solid 1px; */
     font-size: x-large;
     font-family: "Martian Mono", monospace;
@@ -46,8 +46,10 @@ button {
         height: 75vh;
         flex-direction: row;
         width: 100%;
+        margin-top: 25px;
     }
-    #text, #copiar-text {
+    #text,
+    #copiar-text {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -56,7 +58,8 @@ button {
     #text {
         width: 70%;
     }
-    #input-area, #copiar-cont{
+    #input-area,
+    #copiar-cont {
         width: 100%;
         height: 85vh;
     }
@@ -67,16 +70,13 @@ button {
         gap: 20px;
     }
     #copiar-text {
-        width: 30%; 
+        width: 30%;
         height: 100%;
     }
 }
 @media screen and (max-width: 1000px) {
-    * {
-        font-size: x-large;
-    }
     main {
-        margin: 10px 40px;
+        margin: 25px 40px;
         display: flex;
         flex-direction: column;
     }
@@ -85,15 +85,15 @@ button {
         justify-content: center;
         gap: 30px;
         height: auto;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
-    #input-area{
+    #input-area {
         width: 100%;
-        height: 40vh;
+        height: 38vh;
     }
     #copiar-cont {
         width: 100%;
-        height: 30vh;
+        height: 25vh;
     }
 }
 @media screen and (max-width: 600px) {
@@ -106,5 +106,28 @@ button {
     }
     #desencripb {
         margin-top: 0px;
-    } 
+    }
+}
+
+header {
+    height: 10vh;
+    border-bottom: #000 solid 3px;
+    display: flex;
+    align-items: center;
+    margin: 0px 20px;
+    justify-content: space-between;
+    gap: 30px;
+}
+#header {
+    margin-bottom: 2px;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    font-size: smaller;
+    font-family: "Martian Mono", monospace;
 }
