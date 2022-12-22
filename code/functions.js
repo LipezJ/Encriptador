@@ -8,7 +8,7 @@ function encriptar() {
     };
     let word = document.querySelector("#input").value;
     if (word.length >= 1)
-    document.querySelector("#copiar-area").innerHTML = word
+    document.querySelector("#copiar-area").value = word
         .split("")
         .map((letter) => {
             if (Object.keys(keys).indexOf(letter) >= 0) return keys[letter];
@@ -31,7 +31,7 @@ function desencriptar() {
                 }
             })
         }
-        document.querySelector("#copiar-area").innerHTML = word
+        document.querySelector("#copiar-area").value = word
     }
 }
 
@@ -41,5 +41,5 @@ function copiar() {
 
 function limpiar() {
     document.querySelector('#input').value = ''
-    document.querySelector('#copiar-area').innerHTML = '...'
+    document.querySelector('#copiar-area').value = ''
 }
