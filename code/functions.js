@@ -7,6 +7,7 @@ function encriptar() {
         u: "ufat",
     };
     let word = document.querySelector("#input").value;
+    if (word.length >= 1)
     document.querySelector("#copiar-area").innerHTML = word
         .split("")
         .map((letter) => {
@@ -17,20 +18,25 @@ function encriptar() {
 }
 
 function desencriptar() {
-    const keys = { a: 2, e: 5, i: 4, o: 4, u: 4 };
-    let i = 0;
-    let result = "";
+    const keys = {'ai' : 'a', 'enter': 'e', 'imes': 'i', 'ober': 'o', 'ufat': 'u' };
+    let i = true;
     let word = document.querySelector("#input").value;
-    while (i < word.length) {
-        result += word[i];
-        if (Object.keys(keys).indexOf(word[i]) < 0) i++;
-        else i += keys[word[i]];
+    if (word.length >= 1){
+        while(i){
+            i = false
+            Object.keys(keys).forEach((letter) => {
+                if (word.indexOf(letter) >= 0) {
+                    word = word.replace(letter, keys[letter])
+                    i = true
+                }
+            })
+        }
+        document.querySelector("#copiar-area").innerHTML = word
     }
-    document.querySelector("#copiar-area").innerHTML = result;
 }
 
 function copiar() {   
-  navigator.clipboard.writeText(document.querySelector('#copiar-area').innerHTML)
+    navigator.clipboard.writeText(document.querySelector('#copiar-area').innerHTML)
 }
 
 function limpiar() {
