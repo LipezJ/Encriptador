@@ -32,3 +32,8 @@ function desencriptar() {
 function copiar() {   
   navigator.clipboard.writeText(document.querySelector('#copiar-area').innerHTML)
 }
+
+function limpiar() {
+    document.querySelector('#input').value = ''
+    document.querySelector('#copiar-area').innerHTML = '...'
+}

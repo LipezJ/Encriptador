@@ -7,19 +7,25 @@
         <link href="./style.css" rel="stylesheet" type="text/css" />
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;400&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/789f909082.js" crossorigin="anonymous"></script>
         <title>Encriptador|Desencriptador</title>
     </head>
     <body>
         <header>
             <div id="header">Encriptador</div>
-            <div><a href="https://github.com/LipezJ">GitHub</a></div>
+            <div class="linksh"><a title="github" href="https://github.com/LipezJ" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a></div>
         </header>
         <main class="main">
             <div id="text" class="cont1">
                 <div id="input-area">
-                    <input title="text" type="text" aria-autocomplete="none" id="input" />
+                    <textarea title="text" type="text" autocomplete="off" placeholder="Escribe aqui..." id="input"></textarea>
                 </div>
                 <div id="botones">
+                    <div id="limpiar" class="boton">
+                        <button title="limpiar" type="button" id="limpiarb" onclick="limpiar()">
+                            Limpiar
+                        </button>
+                    </div>
                     <div id="encrip" class="boton">
                         <button title="encrip" type="button" id="encripb" onclick="encriptar()">
                             Encriptar
@@ -34,7 +40,7 @@
             </div>
             <div id="copiar-text">
                 <div id="copiar-cont">
-                    <div id="copiar-area"></div>
+                    <div id="copiar-area">...</div>
                 </div>
                 <div id="copiar" class="boton">
                     <button title="copiar" type="button" id="copiarb" onclick="copiar()">Copiar</button>
@@ -42,8 +48,9 @@
             </div>
         </main>
         <footer>
-            <div id="github"><a href="">@LipezJ</a></div>
-            <div id="twitter"><a href="">@Lpe_47</a></div>
+            <div id="instagram" class="linksf"><a title="instagram" href="https://www.instagram.com/lpe_47/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-instagram"></i></a></div>
+            <div id="github" class="linksf"><a title="github" href="https://github.com/LipezJ" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a></div>
+            <div id="twitter" class="linksf"><a title="twitter" href="https://twitter.com/lpe_47" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-twitter"></i></a></div>
         </footer>
     </body>
     <script src="./code/functions.js"></script>
