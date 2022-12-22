@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="./style.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="colors.css">
         <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;400&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/789f909082.js" crossorigin="anonymous"></script>
@@ -13,12 +14,12 @@
     <body>
         <header>
             <div id="header">Encriptador de mensajes</div>
-            <div class="linksh"><a title="github" href="https://github.com/LipezJ" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a></div>
+            <div class="linksh"><a title="github" href="https://github.com/LipezJ/Encriptador" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a></div>
         </header>
         <main class="main">
             <div id="text" class="cont1">
                 <div id="input-area">
-                    <textarea title="text" type="text" autocomplete="off" placeholder="Escribe aqui..." id="input"></textarea>
+                    <textarea title="text" autocomplete="off" placeholder="Escribe aqui..." id="input"></textarea>
                 </div>
                 <div id="botones">
                     <div id="limpiar" class="boton">
@@ -40,7 +41,7 @@
             </div>
             <div id="copiar-text">
                 <div id="copiar-cont">
-                    <div id="copiar-area">...</div>
+                    <textarea title="result" autocomplete="off" readonly="true" id="copiar-area" disabled placeholder="..."></textarea>
                 </div>
                 <div id="copiar" class="boton">
                     <button title="copiar" type="button" id="copiarb" onclick="copiar()">Copiar</button>

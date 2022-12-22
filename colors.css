@@ -1,0 +1,25 @@
+body {
+    background-color: #f9f4ef;
+}
+button {
+    background-color: #8c7851;
+    color: #fffffe;
+}
+button:hover {
+    background-color: #716040;
+}
+#copiar-cont, #input {
+    background-color: #f8ede1b4;
+}
+#copiar-cont, #input, button {
+    border: 3px #020826 solid;
+}
+header {
+    border-bottom: 3px #020826 solid;
+}
+#copiar-area, a {
+    color: #000;
+}
+i {
+    color: #383021;
+}

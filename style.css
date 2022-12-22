@@ -9,7 +9,6 @@ textarea,
 }
 a {
     text-decoration: none;
-    color: #000;
 }
 
 button {
@@ -18,7 +17,6 @@ button {
     height: auto;
     min-width: 200px;
 
-    border: 3px #000 solid;
     border-radius: 10px;
     background-color: #fff;
 }
@@ -32,26 +30,25 @@ button {
 }
 #input {
     width: 100%;
-    margin: 0px 10px;
+    margin: 0px 20px;
     padding: 15px;
     border-radius: 10px;
-    border: 3px #000 solid;
     resize: none;
 }
 #copiar-cont {
     display: flex;
     justify-content: center;
     border-radius: 10px;
-    border: 3px #000 solid;
 }
 #copiar-area {
     width: 100%;
     max-width: 100%;
-    margin: 0px 10px;
     padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
+    resize: none;
 }
 
 @media screen and (min-width: 1000px) {
@@ -113,7 +110,7 @@ button {
         height: 25vh;
     }
 }
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 700px) {
     #botones {
         display: flex;
         flex-direction: column;
@@ -125,18 +122,19 @@ button {
     button {
         margin: 5px;
     }
+    #input {
+        margin: 0px -5px;
+    }
     #limpiarb {
         margin-top: 5px;
     }
 }
-
 header {
     height: 10vh;
-    border-bottom: #000 solid 3px;
     display: flex;
     align-items: center;
-    margin: 0px 20px;
     justify-content: space-between;
+    margin: 0px 15px;
     gap: 30px;
 }
 #header {
