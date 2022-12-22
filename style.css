@@ -1,13 +1,13 @@
 * {
     /* border: #000 solid 1px; */
-    font-size: large;
+    font-size: x-large;
     font-family: "Martian Mono", monospace;
 }
 button {
     padding: 5px 10px;
     margin: 10px 0px;
     height: auto;
-    width: 200px;
+    min-width: 200px;
 
     border: 3px #000 solid;
     border-radius: 10px;
@@ -19,26 +19,22 @@ button {
 }
 #input-area {
     display: flex;
-    height: 100%;
     justify-content: center;
 }
 #input {
-    height: 80%;
     width: 100%;
-    margin: 30px;
+    margin: 0px 10px;
     padding: 15px;
     border-radius: 10px;
     border: 3px #000 solid;
 }
 #copiar-cont {
     display: flex;
-    height: 100%;
     justify-content: center;
 }
 #copiar-area {
-    height: 80%;
     width: 100%;
-    margin: 30px;
+    margin: 0px 10px;
     padding: 15px;
     border-radius: 10px;
     border: 3px #000 solid;
@@ -46,97 +42,66 @@ button {
 
 @media screen and (min-width: 1000px) {
     main {
-        height: 85vh;
-        margin: 20px;
-        display: grid;
-        grid-template-columns: repeat(10, 1fr);
-        grid-template-rows: 1fr;
+        display: flex;
+        height: 75vh;
+        flex-direction: row;
+        width: 100%;
+    }
+    #text, #copiar-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     #text {
-        grid-area: 1 / 1 / 2 / 8;
+        width: 70%;
     }
-    #input-area {
-        height: 80%;
+    #input-area, #copiar-cont{
+        width: 100%;
+        height: 85vh;
     }
     #botones {
-        height: 20%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0px 40px 0px 40px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
     }
     #copiar-text {
-        grid-area: 1 / 8 / 2 / 11;
-    }
-    #copiar-cont {
-        height: 80%;
-    }
-    #copiar {
-        height: 20%;
+        width: 30%; 
+        height: 100%;
     }
 }
 @media screen and (max-width: 1000px) {
+    * {
+        font-size: x-large;
+    }
     main {
-        height: 130vh;
-        margin: 20px;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 1fr);
-    }
-    #text {
-        grid-area: 1 / 1 / 2 / 2;
-    }
-    #input-area {
-        height: 80%;
+        margin: 10px 40px;
+        display: flex;
+        flex-direction: column;
     }
     #botones {
-        height: 20%;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0px 40px 0px 40px;
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        height: auto;
+        margin-bottom: 15px;
     }
-    #copiar-text {
-        grid-area: 2 / 1 / 3 / 2;
+    #input-area{
+        width: 100%;
+        height: 40vh;
     }
     #copiar-cont {
-        height: 80%;
-    }
-    #copiar {
-        height: 20%;
+        width: 100%;
+        height: 30vh;
     }
 }
-@media screen and (max-width: 560px) {
-    main {
-        height: 120vh;
-        display: grid;
-        margin: -5px;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 1fr);
-        gap: 20px;
-    }
-    #text {
-        grid-area: 1 / 1 / 2 / 2;
-    }
-    #input-area {
-        height: 80%;
-        margin: 10px 0px 0px 0px;
-    }
+@media screen and (max-width: 600px) {
     #botones {
-        height: 15%;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 1fr);
-        padding: 0px 40px 0px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         gap: 0px;
-    }
-    #copiar-text {
-        grid-area: 2 / 1 / 3 / 2;
-        height: 60%;
-    }
-    #copiar-cont{
-        height: 80%;
-        margin: 30px 0px 25px 0px;
-    }
-    button {
-        height: 50px;
+        height: auto;
     }
 }

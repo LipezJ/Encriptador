@@ -10,9 +10,7 @@ function encriptar() {
     document.querySelector("#copiar-area").innerHTML = word
         .split("")
         .map((letter) => {
-            if (Object.keys(keys).indexOf(letter) >= 0) {
-                return keys[letter];
-            }
+            if (Object.keys(keys).indexOf(letter) >= 0) return keys[letter];
             return letter;
         })
         .join("");
@@ -32,5 +30,5 @@ function desencriptar() {
 }
 
 function copiar() {   
-  navigator.clipboard.writeText(document.querySelector('#copiar-area').innerHTML).then(e => console.log(e))
+  navigator.clipboard.writeText(document.querySelector('#copiar-area').innerHTML)
 }
