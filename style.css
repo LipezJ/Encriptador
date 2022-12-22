@@ -104,4 +104,7 @@ button {
         gap: 0px;
         height: auto;
     }
+    #desencripb {
+        margin-top: 0px;
+    } 
 }
