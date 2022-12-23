@@ -49,30 +49,27 @@ function copiar() {
             );
         }
     });
-    lasSolo()
 }
 
 function limpiar() {
     document.querySelector("#input").value = "";
     document.querySelector("#copiar-area").value = "";
-    lasSolo()
 }
 
 function soloMinus(e) {
     let alert_ = document.querySelector('#alert')
+    document.querySelector('#input').value = ''
     e.target.className = 'animate__animated animate__headShake'
-    setTimeout(() => e.target.className = '', 1000)
     alert_.style.display = 'block'
     alert_.className = 'animate__animated animate__headShake'
-}
-function lasSolo() {
-    let alert_ = document.querySelector('#alert')
-    alert_.className = ''
-    alert_.style.display = 'none'
+    setTimeout(() => e.target.className = '', 1000)
+    setTimeout(() => {
+        alert_.className = ''
+        alert_.style.display = 'none'
+    }, 2000)
 }
 
 document.querySelector('#limpiarb').addEventListener('click',e => limpiar())
 document.querySelector('#encripb').addEventListener('click',e => encriptar(e))
 document.querySelector('#desencripb').addEventListener('click',e => desencriptar(e))
 document.querySelector('#copiarb').addEventListener('click', e => copiar())
-document.querySelector('#input').addEventListener('focus', e => lasSolo())
