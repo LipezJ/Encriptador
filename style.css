@@ -8,6 +8,9 @@ textarea,
     font-family: "Martian Mono", monospace, sans-serif;
     overflow-x: unset;
 }
+#alert {
+    font-size: larger;
+}
 a {
     text-decoration: none;
 }
@@ -213,6 +216,10 @@ footer {
     textarea,
     #copiar-area {
         font-size: large;
+    }
+    #alert {
+        font-size: medium;
+        width: 35%;
     }
 }
 
