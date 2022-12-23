@@ -16,9 +16,8 @@ function encriptar(e) {
                 return letter;
             })
             .join("");
-    else if (!word.match(re) && word.length >= 1) {
-        soloMinus(e)
-    }
+    else if (!word.match(re) && word.length >= 1) alerta(e)
+    else if (word.length == 0 ) alerta(e, 'El campo esta vacio!')
 }
 
 function desencriptar(e) {
@@ -36,19 +35,19 @@ function desencriptar(e) {
             });
         }
         document.querySelector("#copiar-area").value = word;
-    } else if (!word.match(re) && word.length >= 1) {
-        soloMinus(e)
-    }
+    } else if (!word.match(re) && word.length >= 1) alerta(e)
+    else if (word.length == 0 ) alerta(e, 'El campo esta vacio!')
 }
 
-function copiar() {
-    navigator.permissions.query({ name: "clipboard-write" }).then((result) => {
-        if (result.state === "granted" || result.state === "prompt") {
-            navigator.clipboard.writeText(
-                document.querySelector("#copiar-area").value
-            );
-        }
-    });
+function copiar(e) {
+    let word = document.querySelector("#copiar-area").value
+    if (word.length > 0) {
+        navigator.permissions.query({ name: "clipboard-write" }).then((result) => {
+            if (result.state === "granted" || result.state === "prompt") {
+                navigator.clipboard.writeText(word);
+            }
+        });
+    } else alerta(e, 'El campo esta vacio!')
 }
 
 function limpiar() {
@@ -56,27 +55,36 @@ function limpiar() {
     document.querySelector("#copiar-area").value = "";
 }
 
-function soloMinus(e) {
+function alerta(e, ms) {
     let alert_ = document.querySelector('#alert')
+    let temp = e.target.className
+    if (ms != undefined) alert_.innerHTML = ms
+    else alert_.innerHTML = 'Solo usa minusculas!'
     document.querySelector('#input').value = ''
-    e.target.className = 'animate__animated animate__headShake'
     alert_.style.display = 'block'
+    e.target.className = 'animate__animated animate__headShake'
     alert_.className = 'animate__animated animate__headShake'
-    setTimeout(() => e.target.className = '', 1000)
+    setTimeout(() => e.target.className = temp, 1000)
     setTimeout(() => {
         alert_.className = ''
         alert_.style.display = 'none'
-    }, 1800)
+    }, 2000)
 }
 
-function intercambiar() {
+function intercambiar(e) {
     let temp = document.querySelector('#input').value
-    document.querySelector('#input').value = document.querySelector("#copiar-area").value;
-    document.querySelector("#copiar-area").value = temp
+    let temp_ = document.querySelector("#copiar-area").value;
+    if (temp.match(re) && temp_.match(re) || (temp_.length > 0 && temp_.match(re) && temp.match(re)) || (temp.length == 0 && temp_.length > 0)){
+        document.querySelector('#input').value = temp_;
+        document.querySelector("#copiar-area").value = temp
+    } else if (temp.length == 0 && temp_.length == 0) alerta(e, 'Los campos esta vacios!')
+    else if (temp.length > 0 && temp_.length == 0) alerta(e, 'Un campo vacio!')
+    else  alerta(e)
+    document.querySelector('#interb').className = 'fa-solid fa-arrow-right-arrow-left'
 }
 
 document.querySelector('#limpiarb').addEventListener('click', e => limpiar())
 document.querySelector('#encripb').addEventListener('click',e => encriptar(e))
 document.querySelector('#desencripb').addEventListener('click',e => desencriptar(e))
-document.querySelector('#copiarb').addEventListener('click', e => copiar())
-document.querySelector('#intercamb').addEventListener('click', e => intercambiar())
+document.querySelector('#copiarb').addEventListener('click', e => copiar(e))
+document.querySelector('#intercamb').addEventListener('click', e => intercambiar(e))
