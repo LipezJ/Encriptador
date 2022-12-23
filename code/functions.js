@@ -49,11 +49,13 @@ function copiar() {
             );
         }
     });
+    lasSolo()
 }
 
 function limpiar() {
     document.querySelector("#input").value = "";
     document.querySelector("#copiar-area").value = "";
+    lasSolo()
 }
 
 function soloMinus(e) {
