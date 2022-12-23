@@ -66,10 +66,17 @@ function soloMinus(e) {
     setTimeout(() => {
         alert_.className = ''
         alert_.style.display = 'none'
-    }, 2000)
+    }, 1800)
 }
 
-document.querySelector('#limpiarb').addEventListener('click',e => limpiar())
+function intercambiar() {
+    let temp = document.querySelector('#input').value
+    document.querySelector('#input').value = document.querySelector("#copiar-area").value;
+    document.querySelector("#copiar-area").value = temp
+}
+
+document.querySelector('#limpiarb').addEventListener('click', e => limpiar())
 document.querySelector('#encripb').addEventListener('click',e => encriptar(e))
 document.querySelector('#desencripb').addEventListener('click',e => desencriptar(e))
 document.querySelector('#copiarb').addEventListener('click', e => copiar())
+document.querySelector('#intercamb').addEventListener('click', e => intercambiar())

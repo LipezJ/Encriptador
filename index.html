@@ -20,32 +20,37 @@
         <main class="main">
             <div id="text" class="cont1">
                 <div id="input-area">
-                    <textarea title="text" autocomplete="off" placeholder="Escribe aqui..." id="input"></textarea>
+                    <textarea title="texto" autocomplete="off" placeholder="Escribe aqui..." id="input"></textarea>
                 </div>
                 <div id="botones">
                     <div id="encrip" class="boton">
-                        <button title="encrip" type="button" id="encripb">
+                        <button title="encriptar" type="button" id="encripb">
                             Encriptar
                         </button>
                     </div>
                     <div id="desencrip" class="boton">
-                        <button title="desencrip" type="button" id="desencripb">
+                        <button title="desencriptar" type="button" id="desencripb">
                             Desencriptar
                         </button>
                     </div>
                     <div id="limpiar" class="boton">
                         <button title="limpiar" type="button" id="limpiarb">
-                            Limpiar
+                            <i class="fa-solid fa-broom"></i>
                         </button>
                     </div>
                 </div>
             </div>
             <div id="copiar-text">
                 <div id="copiar-cont">
-                    <textarea title="result" autocomplete="off" readonly="true" id="copiar-area" disabled placeholder="..."></textarea>
+                    <textarea title="resultado" autocomplete="off" readonly="true" id="copiar-area" disabled placeholder="..."></textarea>
                 </div>
-                <div id="copiar" class="boton">
-                    <button title="copiar" type="button" id="copiarb">Copiar</button>
+                <div id="copiarbs">
+                    <div id="intercambiar" class="boton util">
+                        <button title="intercambiar" type="button" id="intercamb"><i class="fa-solid fa-arrow-right-arrow-left"></i></button>
+                    </div>
+                    <div id="copiar" class="boton util">
+                        <button title="copiar" type="button" id="copiarb">Copiar</button>
+                    </div>
                 </div>
             </div>
         </main>
