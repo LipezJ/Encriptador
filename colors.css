@@ -14,9 +14,6 @@ button:hover {
 #copiar-cont, #input, button {
     border: 3px #020826 solid;
 }
-header {
-    border-bottom: 3px #020826 solid;
-}
 #copiar-area, a {
     color: #000;
 }
@@ -28,6 +25,9 @@ i {
     border: #92332a solid 3px;
     color: #fffffe;
 }
-.fa-arrow-right-arrow-left, .fa-broom {
+.fa-arrow-right-arrow-left, .fa-broom, #repo {
     color: #fffffe;
+}
+#gitc {
+    background-color: #000;
 }

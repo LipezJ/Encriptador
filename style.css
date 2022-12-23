@@ -55,15 +55,29 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0px 15px;
+    margin: 0px 0px 0px 15px;
     gap: 30px;
 }
+body {
+    margin: 0px;
+}
 #header {
-    margin-bottom: 2px;
+    text-align: right;
+    margin: 10px 20px 0px 0px;
 }
 .linksh {
     font-size: xx-large;
+    z-index: 99999999;
 }
+#gitc{
+    position: absolute;
+    top: -14vh;
+    left: -12vh;
+    width: 23vh;
+    height: 28vh;
+    transform: rotate(45deg);
+}
+
 footer {
     display: flex;
     flex-direction: row;
