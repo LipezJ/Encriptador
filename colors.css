@@ -23,3 +23,8 @@ header {
 i {
     color: #383021;
 }
+#alert {
+    background-color: #f25042;
+    border: #92332a solid 3px;
+    color: #fffffe;
+}

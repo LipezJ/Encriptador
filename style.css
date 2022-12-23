@@ -2,9 +2,11 @@ main,
 header,
 button,
 textarea,
-#copiar-area {
+#copiar-area,
+#alert {
     font-size: x-large;
-    font-family: "Martian Mono", monospace;
+    font-family: "Martian Mono", monospace, sans-serif;
+    overflow-x: unset;
 }
 a {
     text-decoration: none;
@@ -46,6 +48,14 @@ button {
     border: none;
     resize: none;
 }
+header {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 15px;
+    gap: 30px;
+}
 #header {
     margin-bottom: 2px;
 }
@@ -63,6 +73,18 @@ footer {
 }
 .linksf {
     font-size: x-large;
+}
+
+#alert {
+    display: none;
+    position: absolute;
+    top: 30vh;
+    right: 10px;
+    min-width: auto;
+    max-width: 50%;
+    height: auto;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 @media screen and (min-width: 1000px) {
@@ -171,14 +193,9 @@ footer {
     footer {
         margin-top: 20px;
     }
-}
-header {
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0px 15px;
-    gap: 30px;
+    #alert {
+        top: 35vh;
+    }
 }
 @media screen and (max-width: 500px) {
     main,
@@ -188,4 +205,11 @@ header {
     #copiar-area {
         font-size: large;
     }
+}
+
+.animate__animated.animate__bounce {
+    --animate-duration: 1s;
+}
+.animate__animated.animate__fadeOut {
+    --animate-duration: 1s;
 }

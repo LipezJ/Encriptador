@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;400&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/789f909082.js" crossorigin="anonymous"></script>
         <title>Encriptador|Desencriptador</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     </head>
     <body>
         <header>
@@ -23,17 +24,17 @@
                 </div>
                 <div id="botones">
                     <div id="encrip" class="boton">
-                        <button title="encrip" type="button" id="encripb" onclick="encriptar()">
+                        <button title="encrip" type="button" id="encripb">
                             Encriptar
                         </button>
                     </div>
                     <div id="desencrip" class="boton">
-                        <button title="desencrip" type="button" id="desencripb" onclick="desencriptar()">
+                        <button title="desencrip" type="button" id="desencripb">
                             Desencriptar
                         </button>
                     </div>
                     <div id="limpiar" class="boton">
-                        <button title="limpiar" type="button" id="limpiarb" onclick="limpiar()">
+                        <button title="limpiar" type="button" id="limpiarb">
                             Limpiar
                         </button>
                     </div>
@@ -44,7 +45,7 @@
                     <textarea title="result" autocomplete="off" readonly="true" id="copiar-area" disabled placeholder="..."></textarea>
                 </div>
                 <div id="copiar" class="boton">
-                    <button title="copiar" type="button" id="copiarb" onclick="copiar()">Copiar</button>
+                    <button title="copiar" type="button" id="copiarb">Copiar</button>
                 </div>
             </div>
         </main>
@@ -53,6 +54,7 @@
             <div id="github" class="linksf"><a title="github" href="https://github.com/LipezJ" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a></div>
             <div id="twitter" class="linksf"><a title="twitter" href="https://twitter.com/lpe_47" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-twitter"></i></a></div>
         </footer>
+        <div id="alert" title="alert">Solo usa minusculas!</div>
     </body>
     <script src="./code/functions.js"></script>
     <script src="./code/utilities.js"></script>
