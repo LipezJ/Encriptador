@@ -10,7 +10,7 @@ function encriptar(e) {
     if (word.length >= 1 && word.match(isLower) && word.match(isntEncripted)){
         word.match(isntEncripted).forEach(letter => word = word.replace(letter, keys[letter]));
         document.querySelector("#copiar-area").value = word;
-    } else if (!word.match(isLower) && word.length >= 1) alerta(e, 'Solo usa minusculas!')
+    } else if (!word.match(isLower) && word.length > 0) alerta(e, 'Solo usa minusculas!')
     else if (word.length == 0 ) alerta(e, 'El campo esta vacio!')
     else if (!(word.match(isntEncripted))) document.querySelector("#copiar-area").value = word;
 }
@@ -21,7 +21,7 @@ function desencriptar(e) {
     if (word.length >= 1 && word.match(isLower)) {
         Object.keys(keys).forEach((letter) => word = word.replace(keys[letter], letter))
         document.querySelector("#copiar-area").value = word;
-    } else if (!word.match(isLower) && word.length >= 1) alerta(e, 'Solo usa minusculas!')
+    } else if (!word.match(isLower) && word.length > 0) alerta(e, 'Solo usa minusculas!')
     else if (word.length == 0 ) alerta(e, 'El campo esta vacio!')
 }
 
@@ -43,6 +43,7 @@ function alerta(e, ms) {
     let alert_ = document.querySelector('#alert')
     let temp = e.target.className
     const anim = ' animate__animated animate__headShake'
+    console.log(!(temp.match(alertReg)))
     if (!(temp.match(alertReg))) {
         document.querySelector('#alert').innerHTML = ms
         document.querySelector('#input').value = ''
@@ -52,6 +53,7 @@ function alerta(e, ms) {
         else document.querySelector('#intercamb').className += anim
         setTimeout(() => {
             if (temp.match(interReg)) document.querySelector('#intercamb').className = ''
+            else e.target.className = temp
             alert_.className = ''
             alert_.style.display = 'none'
         }, 2000)
