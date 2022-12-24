@@ -5,11 +5,15 @@ const alertReg = /(animate__animated\sanimate__headShake)/g
 const interReg = /(fa-solid)/g
 
 function encriptar(e) {
-    const keys = { a: "ai", e: "enter", i: "imes", o: "ober", u: "ufat" };
+    const keys = { a: "ai", e: "enter", i: 'imes', o: 'ober', u: 'ufat'};
     let word = document.querySelector("#input").value;
+    let result = ''
     if (word.length >= 1 && word.match(isLower) && word.match(isntEncripted)){
-        word.match(isntEncripted).forEach(letter => word = word.replace(letter, keys[letter]));
-        document.querySelector("#copiar-area").value = word;
+        word.split('').forEach((letter) => {
+            if (letter.match(isntEncripted)) result += keys[letter]
+            else result += letter
+        })
+        document.querySelector("#copiar-area").value = result;
     } else if (!word.match(isLower) && word.length > 0) alerta(e, 'Solo usa minusculas!')
     else if (word.length == 0 ) alerta(e, 'El campo esta vacio!')
     else if (!(word.match(isntEncripted))) document.querySelector("#copiar-area").value = word;
