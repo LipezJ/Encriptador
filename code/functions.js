@@ -43,7 +43,6 @@ function alerta(e, ms) {
     let alert_ = document.querySelector('#alert')
     let temp = e.target.className
     const anim = ' animate__animated animate__headShake'
-    console.log(!(temp.match(alertReg)))
     if (!(temp.match(alertReg))) {
         document.querySelector('#alert').innerHTML = ms
         document.querySelector('#input').value = ''
