@@ -1,4 +1,6 @@
-const re = /^[a-z\s]+$/;
+const isLower = /^[a-z\s]+$/g
+const isEncripted = /(ai|enter|imes|ober|ufat)/g
+const isntEncripted = /[aeiou]/g
 function encriptar(e) {
     const keys = {
         a: "ai",
@@ -8,35 +10,26 @@ function encriptar(e) {
         u: "ufat",
     };
     let word = document.querySelector("#input").value;
-    if (word.length >= 1 && word.match(re))
-        document.querySelector("#copiar-area").value = word
-            .split("")
-            .map((letter) => {
-                if (Object.keys(keys).indexOf(letter) >= 0) return keys[letter];
-                return letter;
-            })
-            .join("");
-    else if (!word.match(re) && word.length >= 1) alerta(e)
+    if (word.length >= 1 && word.match(isLower)){
+        word.match(isntEncripted).forEach(letter => {
+            word = word.replace(letter, keys[letter]);
+        });
+        document.querySelector("#copiar-area").value = word;
+    } else if (!word.match(isLower) && word.length >= 1) alerta(e)
     else if (word.length == 0 ) alerta(e, 'El campo esta vacio!')
 }
 
 function desencriptar(e) {
     const keys = { ai: "a", enter: "e", imes: "i", ober: "o", ufat: "u" };
-    let i = true;
     let word = document.querySelector("#input").value;
-    if (word.length >= 1 && word.match(re)) {
-        while (i) {
-            i = false;
-            Object.keys(keys).forEach((letter) => {
-                if (word.indexOf(letter) >= 0) {
-                    word = word.replace(letter, keys[letter]);
-                    i = true;
-                }
-            });
-        }
+    if (word.length >= 1 && word.match(isLower) && word.match(isEncripted)) {
+        word.match(isEncripted).forEach(letter => {
+            word = word.replace(letter, keys[letter]);
+        });
         document.querySelector("#copiar-area").value = word;
-    } else if (!word.match(re) && word.length >= 1) alerta(e)
+    } else if (!word.match(isLower) && word.length >= 1) alerta(e)
     else if (word.length == 0 ) alerta(e, 'El campo esta vacio!')
+    else if (!(word.match(isEncripted))) document.querySelector("#copiar-area").value = word;
 }
 
 function copiar(e) {
@@ -72,15 +65,10 @@ function alerta(e, ms) {
 }
 
 function intercambiar(e) {
-    let temp = document.querySelector('#input').value
     let temp_ = document.querySelector("#copiar-area").value;
-    if (temp.match(re) && temp_.match(re) || (temp_.length > 0 && temp_.match(re) && temp.match(re)) || (temp.length == 0 && temp_.length > 0)){
-        document.querySelector('#input').value = temp_;
-        document.querySelector("#copiar-area").value = temp
-    } else if (temp.length == 0 && temp_.length == 0) alerta(e, 'Los campos esta vacios!')
-    else if (temp.length > 0 && temp_.length == 0) alerta(e, 'Un campo vacio!')
-    else  alerta(e)
-    document.querySelector('#interb').className = 'fa-solid fa-arrow-right-arrow-left'
+    document.querySelector('#input').value = temp_;
+    if (temp_.match(isEncripted)) desencriptar(e)
+    else encriptar(e)
 }
 
 document.querySelector('#limpiarb').addEventListener('click', e => limpiar())
