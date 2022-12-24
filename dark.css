@@ -10,7 +10,7 @@ button:hover {
 }
 #copiar-cont, #input, #copiar-area{
     background-color: #16161a;
-    color: #94a1b2;
+    color: #a5b3c5;
 }
 #copiar-cont, #input {
     border: 3px #000 solid;
@@ -20,14 +20,14 @@ button {
     border: 3px #4b368a solid;
 }
 header {
-    border-bottom: 3px #94a1b2 solid;
-    color: #94a1b2;
+    border-bottom: 3px #a5b3c5 solid;
+    color: #a5b3c5;
 }
 #copiar-area, a {
-    color: #94a1b2;
+    color: #a5b3c5;
 }
 i {
-    color: #94a1b2;
+    color: #a5b3c5;
 }
 [tema = 'bad'] {
     background-color: #f25042;

@@ -63,7 +63,14 @@ header {
 }
 .linksh {
     font-size: xx-large;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
+#modob {
+    padding: 5px 10px;
+}
+
 footer {
     display: flex;
     flex-direction: row;
