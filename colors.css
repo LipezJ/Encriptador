@@ -30,9 +30,9 @@ i {
     color: #fffffe;
 }
 [tema = 'good'] {
-    background-color: #eaddcf;
-    border: #b6aa9e solid 3px;
-    color: #5e4f35;
+    background-color: #62b492;
+    border: #249264 solid 3px;
+    color: #fffffe;
 }
 .fa-arrow-right-arrow-left, .fa-broom {
     color: #fffffe;
