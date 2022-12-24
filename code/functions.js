@@ -71,8 +71,16 @@ function intercambiar(e) {
     else encriptar(e)
 }
 
+function modo() {
+    let tipo
+    document.querySelectorAll('link').forEach((link) => {if (link.href.match(/(light|dark)/g)) tipo = link})
+    if (tipo.href.match(/(light)/g)) tipo.href = tipo.href.replace(/light/g, 'dark')
+    else tipo.href = tipo.href.replace(/dark/g, 'light')
+}
+
 document.querySelector('#limpiarb').addEventListener('click', e => limpiar())
 document.querySelector('#encripb').addEventListener('click',e => encriptar(e))
 document.querySelector('#desencripb').addEventListener('click',e => desencriptar(e))
 document.querySelector('#copiarb').addEventListener('click', e => copiar(e))
 document.querySelector('#intercamb').addEventListener('click', e => intercambiar(e))
+document.querySelector('#modob').addEventListener('click', e => modo())
