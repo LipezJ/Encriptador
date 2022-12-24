@@ -176,6 +176,9 @@ footer {
     footer {
         margin-top: 60px;
     }
+    #alert {
+        max-width: 30%;
+    }
 }
 @media screen and (max-width: 500px) {
     main,
@@ -208,8 +211,14 @@ footer {
     #alert {
         top: 40vh;
     }
+    button {
+        padding: 5px;
+    }
+    #limpiarb, #intercamb {
+        padding: 5px 25px;
+    }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 450px) {
     main,
     header,
     button,

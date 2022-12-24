@@ -29,9 +29,12 @@ function copiar(e) {
     let word = document.querySelector("#copiar-area").value
     if (word.length > 0) {
         navigator.permissions.query({ name: "clipboard-write" }).then((result) => {
-            if (result.state === "granted" || result.state === "prompt") navigator.clipboard.writeText(word);
+            if (result.state === "granted" || result.state === "prompt") navigator.clipboard.writeText(word).then(() => {
+                alerta(e, 'Texto copiado', '#eaddcf')
+            })
         });
     } else alerta(e, 'El campo esta vacio!')
+    alerta(e, 'Texto copiado!')
 }
 
 function limpiar() {
@@ -45,6 +48,7 @@ function alerta(e, ms) {
     const anim = ' animate__animated animate__headShake'
     if (!(temp.match(alertReg))) {
         document.querySelector('#alert').innerHTML = ms
+        if (ms.match(/(copiado)/g)) document.querySelector('#alert').setAttribute('tema', 'good')
         document.querySelector('#input').value = ''
         alert_.style.display = 'block'
         alert_.className = anim
@@ -55,6 +59,7 @@ function alerta(e, ms) {
             else e.target.className = temp
             alert_.className = ''
             alert_.style.display = 'none'
+            document.querySelector('#alert').setAttribute('tema', 'bad')
         }, 2000)
     }
 }
