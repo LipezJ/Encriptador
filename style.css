@@ -89,8 +89,7 @@ footer {
     position: absolute;
     top: 30vh;
     right: 10px;
-    min-width: auto;
-    max-width: 50%;
+    width: auto;
     height: auto;
     padding: 10px;
     border-radius: 10px;
@@ -183,9 +182,6 @@ footer {
     footer {
         margin-top: 60px;
     }
-    #alert {
-        max-width: 30%;
-    }
 }
 @media screen and (max-width: 500px) {
     main,
@@ -233,9 +229,14 @@ footer {
     #copiar-area {
         font-size: large;
     }
+    header {
+        gap: 15px;
+    }
     #alert {
         font-size: medium;
-        width: 35%;
+    }
+    .linksh {
+        gap: 0px;
     }
 }
 
