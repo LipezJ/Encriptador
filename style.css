@@ -247,10 +247,10 @@ footer {
     --animate-duration: 1s;
 }
 
-textarea::-webkit-scrollbar {
+body::-webkit-scrollbar, textarea::-webkit-scrollbar {
     width: 0.3em;
 }
-
-textarea::-webkit-scrollbar-track, textarea::-webkit-scrollbar-thumb {
+textarea::-webkit-scrollbar-track, textarea::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-track, body::-webkit-scrollbar-thumb {
     border-radius: 10px;
 }

@@ -42,6 +42,6 @@ i {
 .fa-arrow-right-arrow-left, .fa-broom {
     color: #dfdfdd;
 }
-textarea::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
     background-color: #4b368a6c;
 }
