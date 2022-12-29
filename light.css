@@ -37,3 +37,6 @@ i {
 .fa-arrow-right-arrow-left, .fa-broom, .fa-circle-half-stroke{
     color: #fffffe;
 }
+textarea::-webkit-scrollbar-thumb {
+    background-color: #71604071;
+}
