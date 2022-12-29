@@ -1,4 +1,4 @@
-const isLower = /^[a-z\s]+$/g
+const isLower = /^[a-z\s¡!,.;¿?]+$/g
 const isEncripted = /(ai|enter|imes|ober|ufat)/g
 const isntEncripted = /[aeiou]/g
 const alertReg = /(animate__animated\sanimate__headShake)/g
