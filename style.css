@@ -4,9 +4,8 @@ button,
 textarea,
 #copiar-area,
 #alert {
-    font-size: x-large;
+    font-size: clamp(1.2rem, 9vw - 1rem ,1.6rem);
     font-family: "Martian Mono", monospace, sans-serif;
-    overflow-x: unset;
 }
 #alert {
     font-size: larger;
@@ -141,13 +140,6 @@ footer {
     }
 }
 @media screen and (max-width: 1000px) {
-    main,
-    header,
-    button,
-    textarea,
-    #copiar-area {
-        font-size: x-large;
-    }
     main {
         margin: 25px 40px;
         display: flex;
@@ -184,13 +176,6 @@ footer {
     }
 }
 @media screen and (max-width: 500px) {
-    main,
-    header,
-    button,
-    textarea,
-    #copiar-area {
-        font-size: x-large;
-    }
     #botones {
         display: flex;
         flex-direction: column;
@@ -222,13 +207,6 @@ footer {
     }
 }
 @media screen and (max-width: 450px) {
-    main,
-    header,
-    button,
-    textarea,
-    #copiar-area {
-        font-size: large;
-    }
     header {
         gap: 15px;
     }
