@@ -4,19 +4,14 @@ const alertReg = /(animate__animated\sanimate__headShake)/g
 const interReg = /(fa-solid)/g
 const regAlert = /(copiado|agregada|eliminada)/g
 const regSpace = /[^\s]/g
-let keysd = { a: /ai/g, e: /enter/g, i: /imes/g, o: /ober/g, u: /ufat/g };
-let keyse = { a: "ai", e: "enter", i: 'imes', o: 'ober', u: 'ufat'};
+keys = [ 'ai', 'enter', 'imes', 'ober', 'ufat' ]
 
 function encriptar(e) {
     let word = document.querySelector("#input").value;
-    let result = ''
     if ((word.match(isLower) || word.match(regSign)) && word.match(regSpace)){
-        word.split('').forEach((letter) => {
-            if (Object.keys(keyse).indexOf(letter) >= 0) result += keyse[letter]
-            else result += letter
-            console.log(1)
-        })
-        document.querySelector("#copiar-area").value = result;
+        keys.forEach((k, i) => {word = word.replace(RegExp(k[0], 'g'), i)})
+        keys.forEach((k, i) => {word = word.replace(RegExp(i, 'g'), k)})
+        document.querySelector("#copiar-area").value = word;
     } else if (!word.match(isLower) && word.match(regSpace)) alerta(e, 'Solo usa minusculas!')
     else if (!word.match(regSpace)) alerta(e, 'El campo esta vacio!')
 }
@@ -24,7 +19,7 @@ function encriptar(e) {
 function desencriptar(e) {
     let word = document.querySelector("#input").value;
     if ((word.match(isLower) || word.match(regSign)) && word.match(regSpace)) {
-        Object.keys(keysd).forEach((letter) => {word = word.replace(keysd[letter], letter);console.log(1)})
+        keys.forEach((key) => {word = word.replace(RegExp(key, 'g'), key[0]);console.log(1)})
         document.querySelector("#copiar-area").value = word;
     } else if (!word.match(isLower) && word.match(regSpace)) alerta(e, 'Solo usa minusculas!')
     else if (!word.match(regSpace)) alerta(e, 'El campo esta vacio!')
@@ -71,9 +66,8 @@ function alerta(e, ms) {
 
 function intercambiar(e) {
     let temp_ = document.querySelector("#copiar-area").value;
-    let isEncripted = RegExp('(' +Object.keys(keysd).map(i => {return keysd[i]}).join('|').replace(/(\/|g)/g, '') + ')', 'g')
     document.querySelector('#input').value = temp_;
-    if (temp_.match(isEncripted)) desencriptar(e)
+    if (temp_.match(RegExp('('+keys.join('|')+')'))) desencriptar(e)
     else encriptar(e)
 }
 
@@ -93,14 +87,14 @@ function configp() {
 function agregar(e) {
     let clave = document.getElementById('cclave').value
     let valor = document.getElementById('cvalor').value
-    if (!keyse[clave] && valor.match(RegExp('^'+clave)) && clave.match(regSpace) && clave.match(isLower)) {
-        keyse[clave] = valor
-        keysd[clave] = RegExp(valor, 'g')
+    if (!keys[keys.indexOf(valor)] && clave.match(isLower) && valor.match(isLower) 
+        && clave.match(regSpace) && valor.match(regSpace) && valor.match(RegExp('^'+clave))) {
+        keys.push(valor)
         alerta(e, 'Clave agregada!')
-    } else if (!clave.match(isLower)) alerta(e, 'Solo usa minusculas!')
-    else if (keyse[clave]) alerta(e, 'Este llave ya existe!')
+    } else if (!(clave.match(regSpace) && valor.match(regSpace))) alerta(e, 'Campo vacio!')
+    else if (!(clave.match(regSpace) && valor.match(regSpace))) alerta(e, 'Solo usa minusculas!')
     else if (!valor.match(RegExp('^'+clave))) alerta(e, 'Clave/valor no valido!')
-    else alerta(e, 'Campo vacio!')
+    else if (keys[keys.indexOf(valor)]) alerta(e, 'Este clave ya existe!')
     document.getElementById('cclave').value = ''
     document.getElementById('cvalor').value = ''
 }
@@ -108,14 +102,13 @@ function agregar(e) {
 function eliminar(e) {
     let clave = document.getElementById('cclave').value
     let valor = document.getElementById('cvalor').value
-    if (clave.match(regSpace) && clave.match(isLower) && keyse[clave] == valor && keyse[clave]) {
-        delete keyse[clave]
-        delete keysd[clave]
+    if (clave.match(regSpace) && clave.match(isLower) && keys[keys.indexOf(valor)] && valor.match(RegExp('^'+clave))) {
+        keys.splice(keys[keys.indexOf(valor)], 1)
         alerta(e, 'Clave eliminada!')
-    } else if (!clave.match(isLower)) alerta(e, 'Solo usa minusculas!')
-    else if (!keyse[clave]) alerta(e, 'Este llave no existe!')
-    else if (keyse[clave] != valor) alerta(e, 'Clave/valor no coinciden!')
-    else alerta(e, 'Campo vacio!')
+    } else if (!clave.match(regSpace)) alerta(e, 'Campo vacio!')
+    else if (!clave.match(isLower)) alerta(e, 'Solo usa minusculas!')
+    else if (!keys[keys.indexOf(valor)]) alerta(e, 'Este clave no existe!')
+    else if (!valor.match(RegExp('^'+clave))) alerta(e, 'Clave/valor no valido!')
     document.getElementById('cclave').value = ''
     document.getElementById('cvalor').value = ''
 }
