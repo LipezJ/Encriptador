@@ -2,9 +2,11 @@ const isLower = /^[a-z\s]+$/g
 const regSign = /^[a-z\s¡!,.;¿?]+$/g
 const alertReg = /(animate__animated\sanimate__headShake)/g
 const interReg = /(fa-solid)/g
-const regAlert = /(copiado|agregada|eliminada)/g
+const regAlert = /(copi|agre|elim|rest)/g
 const regSpace = /[^\s]/g
-keys = [ 'ai', 'enter', 'imes', 'ober', 'ufat' ]
+
+let keys = window.localStorage.getItem('keys').split(',')
+if (!window.localStorage.getItem('keys')) restaurar()
 
 function encriptar(e) {
     let word = document.querySelector("#input").value;
@@ -90,6 +92,8 @@ function agregar(e) {
     if (!keys[keys.indexOf(valor)] && clave.match(isLower) && valor.match(isLower) 
         && clave.match(regSpace) && valor.match(regSpace) && valor.match(RegExp('^'+clave))) {
         keys.push(valor)
+        window.localStorage.removeItem('keys')
+        window.localStorage.setItem('keys', keys)
         alerta(e, 'Clave agregada!')
     } else if (!(clave.match(regSpace) && valor.match(regSpace))) alerta(e, 'Campo vacio!')
     else if (!(clave.match(regSpace) && valor.match(regSpace))) alerta(e, 'Solo usa minusculas!')
@@ -104,6 +108,8 @@ function eliminar(e) {
     let valor = document.getElementById('cvalor').value
     if (clave.match(regSpace) && clave.match(isLower) && keys[keys.indexOf(valor)] && valor.match(RegExp('^'+clave))) {
         keys.splice(keys[keys.indexOf(valor)], 1)
+        window.localStorage.removeItem('keys')
+        window.localStorage.setItem('keys', keys)
         alerta(e, 'Clave eliminada!')
     } else if (!clave.match(regSpace)) alerta(e, 'Campo vacio!')
     else if (!clave.match(isLower)) alerta(e, 'Solo usa minusculas!')
@@ -111,6 +117,14 @@ function eliminar(e) {
     else if (!valor.match(RegExp('^'+clave))) alerta(e, 'Clave/valor no valido!')
     document.getElementById('cclave').value = ''
     document.getElementById('cvalor').value = ''
+}
+
+function restaurar(e) {
+    let key = [ 'ai', 'enter', 'imes', 'ober', 'ufat' ]
+    window.localStorage.clear()
+    window.localStorage.setItem('keys', key)
+    keys = key
+    if (e) alerta(e, 'Claves restauradas!') 
 }
 
 document.querySelector('#limpiarb').addEventListener('click', e => limpiar())
@@ -123,3 +137,4 @@ document.querySelector('#configb').addEventListener('click', e => configp())
 document.querySelector('#salirb').addEventListener('click', e => configp())
 document.querySelector('#agb').addEventListener('click', e => agregar(e))
 document.querySelector('#elimb').addEventListener('click', e => eliminar(e))
+document.querySelector('#restb').addEventListener('click', e => restaurar(e))
