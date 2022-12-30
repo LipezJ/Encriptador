@@ -2,14 +2,63 @@ main,
 header,
 button,
 textarea,
+input,
 #copiar-area,
-#alert {
+#alert,
+#configp {
     font-size: clamp(1rem, 7vw - 1rem ,1.6rem);
     font-family: "Martian Mono", monospace, sans-serif;
 }
-#alert {
-    font-size: larger;
+
+#configp {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    justify-items: center;
+    position: fixed;
+    width: auto;
+    height: auto;
+    top: 20vh;
+    left: 10vw;
+    border-radius: 10px;
+    padding: 10px;
+    justify-self: center;
 }
+#ccont {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    justify-items: center;
+}
+.cinput {
+    border-radius: 10px;
+    outline: none;
+    padding: 5px;
+}
+.ccinput {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+#cvalor {
+    width: 10rem;
+}
+#cclave {
+    width: 5rem;
+    text-align: center;
+}
+#csalir {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+#ctitle {
+    margin-left: 10px;
+}
+
 a {
     text-decoration: none;
 }
@@ -23,6 +72,10 @@ button {
 .boton {
     display: flex;
     justify-content: center;
+}
+.util {
+    display: flex;
+    gap: 10px;
 }
 #input-area {
     display: flex;
@@ -84,15 +137,17 @@ footer {
 }
 
 #alert {
+    font-size: larger;
+    z-index: 1000;
     display: none;
-    position: absolute;
+    position: fixed;
     top: 30vh;
     right: 10px;
     width: auto;
     height: auto;
     padding: 10px;
     border-radius: 10px;
-}
+}   
 
 @media screen and (min-width: 1100px) {
     main {
@@ -190,8 +245,8 @@ footer {
     #input {
         margin: 0px -5px;
     }
-    #limpiarb {
-        margin-top: 5px;
+    #copiarbs, .util {
+        gap: 0px;
     }
     footer {
         margin-top: 20px;
@@ -202,8 +257,19 @@ footer {
     button {
         padding: 5px;
     }
-    #limpiarb, #intercamb {
+    #limpiarb, #intercamb, #configb, #elimb, #agb {
         padding: 5px 25px;
+    }
+    
+    #salirb {
+        padding: 2px 6px;
+    }
+    #cvalor {
+        width: 6rem;
+    }
+    #cclave {
+        width: 2rem;
+        text-align: center;
     }
 }
 @media screen and (max-width: 450px) {

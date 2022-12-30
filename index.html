@@ -39,10 +39,17 @@
                             Desencriptar
                         </button>
                     </div>
-                    <div id="limpiar" class="boton">
-                        <button title="limpiar" type="button" id="limpiarb">
-                            <i class="fa-solid fa-broom"></i>
-                        </button>
+                    <div class="boton util">
+                        <div id="config">
+                            <button title="configuracion" type="button" id="configb">
+                                <i class="fa-solid fa-wrench"></i>
+                            </button>
+                        </div>
+                        <div id="limpiar">
+                            <button title="limpiar" type="button" id="limpiarb">
+                                <i class="fa-solid fa-broom"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -66,6 +73,26 @@
             <div id="twitter" class="linksf"><a title="twitter" href="https://twitter.com/lpe_47" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-twitter"></i></a></div>
         </footer>
         <div id="alert" title="alert" tema="bad"></div>
+        <div id="configp">
+            <div id="ccont">
+                <div id="csalir" class="boton">
+                    <div id="ctitle">Editar claves</div>
+                    <button type="button" title="salir" id="salirb" ><i class="fa-solid fa-xmark"></i></button>
+                </div>
+                <div class="ccinput">
+                    <input title="clave" id="cclave" class="cinput" type="text" maxlength="1">
+                    <input title="valor" id="cvalor" class="cinput" type="text" maxlength="6">
+                </div>
+                <div  class="boton ccinput">
+                    <div id="agregar">
+                        <button type="button" title="agregar" id="agb" ><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div id="eliminar">
+                        <button type="button" title="eliminar" id="elimb" ><i class="fa-solid fa-minus"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
     <script src="./code/functions.js"></script>
 </html>

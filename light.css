@@ -1,14 +1,20 @@
 body {
     background-color: #f9f4ef;
 }
-button {
+button{
     background-color: #8c7851;
     color: #fffffe;
 }
 button:hover {
     background-color: #716040;
 }
-#copiar-cont, #input {
+#configp {
+    background-color: #f9f4ef;
+}
+#configp, .cinput {
+    border: 3px solid #020826;
+}
+#copiar-cont, #input, input  {
     background-color: #f8ede1b4;
 }
 #copiar-cont, #input, button {
@@ -34,7 +40,7 @@ i {
     border: #249264 solid 3px;
     color: #fffffe;
 }
-.fa-arrow-right-arrow-left, .fa-broom, .fa-circle-half-stroke{
+.fa-arrow-right-arrow-left, .fa-broom, .fa-circle-half-stroke, .fa-wrench, .fa-plus, .fa-minus, .fa-xmark{
     color: #fffffe;
 }
 body::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {

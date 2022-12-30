@@ -1,32 +1,33 @@
-const isLower = /^[a-z\s¡!,.;¿?]+$/g
-const isEncripted = /(ai|enter|imes|ober|ufat)/g
-const isntEncripted = /[aeiou]/g
+const isLower = /^[a-z\s]+$/g
+const regSign = /^[a-z\s¡!,.;¿?]+$/g
 const alertReg = /(animate__animated\sanimate__headShake)/g
 const interReg = /(fa-solid)/g
+const regAlert = /(copiado|agregada|eliminada)/g
+const regSpace = /[^\s]/g
+let keysd = { a: /ai/g, e: /enter/g, i: /imes/g, o: /ober/g, u: /ufat/g };
+let keyse = { a: "ai", e: "enter", i: 'imes', o: 'ober', u: 'ufat'};
 
 function encriptar(e) {
-    const keys = { a: "ai", e: "enter", i: 'imes', o: 'ober', u: 'ufat'};
     let word = document.querySelector("#input").value;
     let result = ''
-    if (word.length >= 1 && word.match(isLower) && word.match(isntEncripted)){
+    if ((word.match(isLower) || word.match(regSign)) && word.match(regSpace)){
         word.split('').forEach((letter) => {
-            if (letter.match(isntEncripted)) result += keys[letter]
+            if (Object.keys(keyse).indexOf(letter) >= 0) result += keyse[letter]
             else result += letter
+            console.log(1)
         })
         document.querySelector("#copiar-area").value = result;
-    } else if (!word.match(isLower) && word.length > 0) alerta(e, 'Solo usa minusculas!')
-    else if (word.length == 0 ) alerta(e, 'El campo esta vacio!')
-    else if (!(word.match(isntEncripted))) document.querySelector("#copiar-area").value = word;
+    } else if (!word.match(isLower) && word.match(regSpace)) alerta(e, 'Solo usa minusculas!')
+    else if (!word.match(regSpace)) alerta(e, 'El campo esta vacio!')
 }
 
 function desencriptar(e) {
-    const keys = { a: /ai/g, e: /enter/g, i: /imes/g, o: /ober/g, u: /ufat/g };
     let word = document.querySelector("#input").value;
-    if (word.length >= 1 && word.match(isLower)) {
-        Object.keys(keys).forEach((letter) => word = word.replace(keys[letter], letter))
+    if ((word.match(isLower) || word.match(regSign)) && word.match(regSpace)) {
+        Object.keys(keysd).forEach((letter) => {word = word.replace(keysd[letter], letter);console.log(1)})
         document.querySelector("#copiar-area").value = word;
-    } else if (!word.match(isLower) && word.length > 0) alerta(e, 'Solo usa minusculas!')
-    else if (word.length == 0 ) alerta(e, 'El campo esta vacio!')
+    } else if (!word.match(isLower) && word.match(regSpace)) alerta(e, 'Solo usa minusculas!')
+    else if (!word.match(regSpace)) alerta(e, 'El campo esta vacio!')
 }
 
 function copiar(e) {
@@ -52,14 +53,14 @@ function alerta(e, ms) {
     const anim = ' animate__animated animate__headShake'
     if (!(temp.match(alertReg))) {
         document.querySelector('#alert').innerHTML = ms
-        if (ms.match(/(copiado)/g)) document.querySelector('#alert').setAttribute('tema', 'good')
+        if (ms.match(regAlert)) document.querySelector('#alert').setAttribute('tema', 'good')
         document.querySelector('#input').value = ''
         alert_.style.display = 'block'
         alert_.className = anim
         if (!temp.match(interReg)) e.target.className += anim
-        else document.querySelector('#intercamb').className += anim
+        else e.target.parentElement.className += anim
         setTimeout(() => {
-            if (temp.match(interReg)) document.querySelector('#intercamb').className = ''
+            if (temp.match(interReg)) e.target.parentElement.className = ''
             else e.target.className = temp
             alert_.className = ''
             alert_.style.display = 'none'
@@ -70,6 +71,7 @@ function alerta(e, ms) {
 
 function intercambiar(e) {
     let temp_ = document.querySelector("#copiar-area").value;
+    let isEncripted = RegExp('(' +Object.keys(keysd).map(i => {return keysd[i]}).join('|').replace(/(\/|g)/g, '') + ')', 'g')
     document.querySelector('#input').value = temp_;
     if (temp_.match(isEncripted)) desencriptar(e)
     else encriptar(e)
@@ -82,9 +84,49 @@ function modo() {
     else tipo.href = tipo.href.replace(/dark/g, 'light')
 }
 
+function configp() {
+    let panel = document.querySelector('#configp').style.display
+    if (panel == 'flex') document.querySelector('#configp').style.display = 'none'
+    else document.querySelector('#configp').style.display = 'flex'
+}
+
+function agregar(e) {
+    let clave = document.getElementById('cclave').value
+    let valor = document.getElementById('cvalor').value
+    if (!keyse[clave] && valor.match(RegExp('^'+clave)) && clave.match(regSpace) && clave.match(isLower)) {
+        keyse[clave] = valor
+        keysd[clave] = RegExp(valor, 'g')
+        alerta(e, 'Clave agregada!')
+    } else if (!clave.match(isLower)) alerta(e, 'Solo usa minusculas!')
+    else if (keyse[clave]) alerta(e, 'Este llave ya existe!')
+    else if (!valor.match(RegExp('^'+clave))) alerta(e, 'Clave/valor no valido!')
+    else alerta(e, 'Campo vacio!')
+    document.getElementById('cclave').value = ''
+    document.getElementById('cvalor').value = ''
+}
+
+function eliminar(e) {
+    let clave = document.getElementById('cclave').value
+    let valor = document.getElementById('cvalor').value
+    if (clave.match(regSpace) && clave.match(isLower) && keyse[clave] == valor && keyse[clave]) {
+        delete keyse[clave]
+        delete keysd[clave]
+        alerta(e, 'Clave eliminada!')
+    } else if (!clave.match(isLower)) alerta(e, 'Solo usa minusculas!')
+    else if (!keyse[clave]) alerta(e, 'Este llave no existe!')
+    else if (keyse[clave] != valor) alerta(e, 'Clave/valor no coinciden!')
+    else alerta(e, 'Campo vacio!')
+    document.getElementById('cclave').value = ''
+    document.getElementById('cvalor').value = ''
+}
+
 document.querySelector('#limpiarb').addEventListener('click', e => limpiar())
 document.querySelector('#encripb').addEventListener('click',e => encriptar(e))
 document.querySelector('#desencripb').addEventListener('click',e => desencriptar(e))
 document.querySelector('#copiarb').addEventListener('click', e => copiar(e))
 document.querySelector('#intercamb').addEventListener('click', e => intercambiar(e))
 document.querySelector('#modob').addEventListener('click', e => modo())
+document.querySelector('#configb').addEventListener('click', e => configp())
+document.querySelector('#salirb').addEventListener('click', e => configp())
+document.querySelector('#agb').addEventListener('click', e => agregar(e))
+document.querySelector('#elimb').addEventListener('click', e => eliminar(e))

@@ -8,11 +8,17 @@ button {
 button:hover {
     background-color: #4b368a;
 }
-#copiar-cont, #input, #copiar-area{
+#copiar-cont, #input, #copiar-area, input{
     background-color: #16161a;
     color: #a5b3c5;
 }
-#copiar-cont, #input {
+#configp {
+    background-color: #242629;
+}
+#configp, .cinput {
+    border: 3px solid #000;
+}
+#copiar-cont, #input, input {
     border: 3px #000 solid;
     outline: none;
 }
@@ -26,7 +32,7 @@ header {
 #copiar-area, a {
     color: #a5b3c5;
 }
-i {
+i, #ctitle {
     color: #a5b3c5;
 }
 [tema = 'bad'] {
@@ -39,7 +45,7 @@ i {
     border: #249264 solid 3px;
     color: #fffffe;
 }
-.fa-arrow-right-arrow-left, .fa-broom {
+.fa-arrow-right-arrow-left, .fa-broom, .fa-wrench {
     color: #dfdfdd;
 }
 body::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
