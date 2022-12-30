@@ -193,7 +193,7 @@ footer {
         max-height: 100%;
     }
     #configp {
-        left: 40vw;
+        right: 20vw;
     }
 }
 @media screen and (max-width: 1100px) {
@@ -232,7 +232,7 @@ footer {
         margin-top: 60px;
     }
     #configp {
-        left: 20vw;
+        right: 20vw;
     }
 }
 @media screen and (max-width: 500px) {
