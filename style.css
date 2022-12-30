@@ -26,7 +26,7 @@ input,
 #ccont {
     display: flex;
     flex-direction: column;
-    gap: 0px;
+    gap: 10px;
     justify-items: center;
 }
 .cinput {
@@ -34,12 +34,11 @@ input,
     outline: none;
     padding: 5px;
 }
-.ccinput {
+.ccinput, .cboton {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 15px;
-    margin-top: 10px;
 }
 #cvalor {
     width: 10rem;
@@ -65,7 +64,7 @@ button {
     padding: 5px 20px;
     margin: 10px 0px;
     height: auto;
-
+    outline: none;
     border-radius: 10px;
 }
 .boton {
@@ -120,6 +119,9 @@ header {
 }
 #modob {
     padding: 5px 10px;
+}
+#modob:active {
+    padding-top: 7.5px;
 }
 
 footer {
@@ -262,11 +264,20 @@ footer {
     button {
         padding: 5px;
     }
-    #limpiarb, #intercamb, #configb, #elimb, #agb {
+    #limpiarb, #intercamb, #configb {
         padding: 5px 25px;
     }
-    #salirb {
-        padding: 2px 6px;
+    #salirb, #elimb, #agb, #restb {
+        padding: 2px 10px;
+    }
+    #limpiarb:active, #intercamb:active, #configb:active {
+        padding-top: 6.5px;
+    }
+    #salirb:active, #elimb:active, #agb:active, #restb:active, #modob:active {
+        padding-top: 3.5px;
+    }
+    .cboton {
+        gap: 0px;
     }
     #cvalor {
         width: 6rem;
@@ -276,7 +287,8 @@ footer {
         text-align: center;
     }
     #configp {
-        left: 10vw;
+        left: 15vw;
+        right: auto;
     }
 }
 @media screen and (max-width: 450px) {
@@ -304,4 +316,9 @@ body::-webkit-scrollbar, textarea::-webkit-scrollbar {
 textarea::-webkit-scrollbar-track, textarea::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-track, body::-webkit-scrollbar-thumb {
     border-radius: 10px;
+}
+
+button:active {
+    padding-top: 6.5px;
+    padding-bottom: 6.5px;
 }

@@ -4,9 +4,14 @@ body {
 button{
     background-color: #8c7851;
     color: #fffffe;
+    border: 3px #020826 solid;
+    border-bottom: 6px #020826 solid;
 }
 button:hover {
     background-color: #716040;
+}
+button:active {
+    border-bottom: 3px #020826 solid;
 }
 #configp {
     background-color: #f9f4ef;
@@ -17,7 +22,7 @@ button:hover {
 #copiar-cont, #input, input  {
     background-color: #f8ede1b4;
 }
-#copiar-cont, #input, button {
+#copiar-cont, #input {
     border: 3px #020826 solid;
     outline: none;
 }
@@ -40,7 +45,7 @@ i {
     border: #249264 solid 3px;
     color: #fffffe;
 }
-.fa-arrow-right-arrow-left, .fa-broom, .fa-circle-half-stroke, .fa-wrench, .fa-plus, .fa-minus, .fa-xmark{
+.fa-arrow-right-arrow-left, .fa-broom, .fa-circle-half-stroke, .fa-wrench, .fa-plus, .fa-minus, .fa-xmark, .fa-repeat{
     color: #fffffe;
 }
 body::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {

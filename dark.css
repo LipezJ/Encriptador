@@ -2,11 +2,16 @@ body {
     background-color: #242629;
 }
 button {
+    border: 3px #3b2b6b solid;
+    border-bottom: 6px #3b2b6b solid;
     background-color: #7f5af0;
     color: #dfdfdd;
 }
 button:hover {
-    background-color: #4b368a;
+    background-color: #5c42ac;
+}
+button:active {
+    border-bottom: 3px #3b2b6b solid;
 }
 #copiar-cont, #input, #copiar-area, input{
     background-color: #16161a;
@@ -21,9 +26,6 @@ button:hover {
 #copiar-cont, #input, input {
     border: 3px #000 solid;
     outline: none;
-}
-button {
-    border: 3px #4b368a solid;
 }
 header {
     border-bottom: 3px #a5b3c5 solid;
@@ -45,7 +47,7 @@ i, #ctitle {
     border: #249264 solid 3px;
     color: #fffffe;
 }
-.fa-arrow-right-arrow-left, .fa-broom, .fa-wrench {
+.fa-arrow-right-arrow-left, .fa-broom, .fa-circle-half-stroke, .fa-wrench, .fa-plus, .fa-minus, .fa-xmark, .fa-repeat {
     color: #dfdfdd;
 }
 body::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
