@@ -19,7 +19,7 @@ function encriptar(e) {
 function desencriptar(e) {
     let word = document.querySelector("#input").value;
     if ((word.match(isLower) || word.match(regSign)) && word.match(regSpace)) {
-        keys.forEach((key) => {word = word.replace(RegExp(key, 'g'), key[0]);console.log(1)})
+        keys.forEach((key) => {word = word.replace(RegExp(key, 'g'), key[0])})
         document.querySelector("#copiar-area").value = word;
     } else if (!word.match(isLower) && word.match(regSpace)) alerta(e, 'Solo usa minusculas!')
     else if (!word.match(regSpace)) alerta(e, 'El campo esta vacio!')
