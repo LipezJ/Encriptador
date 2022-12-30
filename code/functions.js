@@ -5,8 +5,8 @@ const interReg = /(fa-solid)/g
 const regAlert = /(copi|agre|elim|rest)/g
 const regSpace = /[^\s]/g
 
-let keys = window.localStorage.getItem('keys').split(',')
-if (!window.localStorage.getItem('keys')) restaurar()
+let keys
+if (!window.localStorage.getItem('keys') || !keys) restaurar()
 
 function encriptar(e) {
     let word = document.querySelector("#input").value;

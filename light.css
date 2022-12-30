@@ -45,7 +45,7 @@ i {
     border: #249264 solid 3px;
     color: #fffffe;
 }
-.fa-arrow-right-arrow-left, .fa-broom, .fa-circle-half-stroke, .fa-wrench, .fa-plus, .fa-minus, .fa-xmark, .fa-repeat{
+.buttoni{
     color: #fffffe;
 }
 body::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {

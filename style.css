@@ -67,6 +67,10 @@ button {
     outline: none;
     border-radius: 10px;
 }
+button:active {
+    padding-top: 6.5px;
+    padding-bottom: 6.5px;
+}
 .boton {
     display: flex;
     justify-content: center;
@@ -117,11 +121,14 @@ header {
     align-items: center;
     gap: 20px;
 }
+#repo {
+    font-size: 2.5rem;
+}
 #modob {
     padding: 5px 10px;
 }
 #modob:active {
-    padding-top: 7.5px;
+    padding: 6.5px 10px;
 }
 
 footer {
@@ -271,10 +278,13 @@ footer {
         padding: 2px 10px;
     }
     #limpiarb:active, #intercamb:active, #configb:active {
-        padding-top: 6.5px;
+        padding: 6.5px 25px;
     }
-    #salirb:active, #elimb:active, #agb:active, #restb:active, #modob:active {
-        padding-top: 3.5px;
+    #salirb:active, #elimb:active, #agb:active, #restb:active {
+        padding: 3.5px 10px;
+    }
+    #modob:active {
+        padding: 6.5px 10px;
     }
     .cboton {
         gap: 0px;
@@ -289,6 +299,9 @@ footer {
     #configp {
         left: 15vw;
         right: auto;
+    }
+    #repo {
+        font-size: xx-large;
     }
 }
 @media screen and (max-width: 450px) {
@@ -316,9 +329,4 @@ body::-webkit-scrollbar, textarea::-webkit-scrollbar {
 textarea::-webkit-scrollbar-track, textarea::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-track, body::-webkit-scrollbar-thumb {
     border-radius: 10px;
-}
-
-button:active {
-    padding-top: 6.5px;
-    padding-bottom: 6.5px;
 }
