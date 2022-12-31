@@ -9,7 +9,7 @@ let keys
 if (!window.localStorage.getItem('keys') || !keys) restaurar()
 
 function encriptar(e) {
-    let word = document.querySelector("#input").value.trim();
+    let word = document.querySelector("#input").value.replace(/\s+/g, ' ').trim();
     if ((word.match(isLower) || word.match(regSign)) && word.match(regSpace)){
         keys.forEach((k, i) => {word = word.replace(RegExp(k[0], 'g'), i)})
         keys.forEach((k, i) => {word = word.replace(RegExp(i, 'g'), k)})
@@ -19,7 +19,7 @@ function encriptar(e) {
 }
 
 function desencriptar(e) {
-    let word = document.querySelector("#input").value.trim();
+    let word = document.querySelector("#input").value.replace(/\s+/g, ' ').trim();
     if ((word.match(isLower) || word.match(regSign)) && word.match(regSpace)) {
         keys.forEach((key) => {word = word.replace(RegExp(key, 'g'), key[0])})
         document.querySelector("#copiar-area").value = word;
